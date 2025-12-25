@@ -1,0 +1,186 @@
+# 🎓 Master Git & GitHub: Zero to Hero
+
+Welcome to the comprehensive Git & GitHub training repository. This project is structured as a step-by-step learning path to take students from fundamental theory to enterprise-level workflows.
+
+## 🗺️ Learning Roadmap
+
+| Phase | Topic | Key Concepts |
+| :--- | :--- | :--- |
+| **01** | [Setup & Concepts](./01-Concepts-and-Setup/) | Deep Dive Theory, Architecture Flow, Installation |
+| **02** | [Basic Workflow](./02-Basic-Workflow/) | Clone, Push, Pull, Fetch, Log, .gitignore |
+| **03** | [Branching & Merging](./03-Branching-and-Merging/) | Merge vs Rebase, Conflict Resolution, Strategies |
+| **04** | [Advanced Tools](./04-Advanced-Git-Tools/) | Stashing, Cherry-picking, Tagging, Squashing |
+| **05** | [Recovery & Undo](./05-Undo-and-Troubleshoot/) | Revert, Reset, Common Error Solutions |
+| **06** | [Enterprise Admin](./06-Org-and-RBAC/) | Org Setup, RBAC, Security & Permissions |
+
+
+## 🚀 How to use this Repository
+1. Navigate to the numbered folder following the syllabus.
+2. Follow the **theory** section in each folder.
+3. Complete the **hands-on** lab exercises provided.
+2. The Topic README (Example for Phase 1)
+Each folder should have its own README.md. Here is a professional layout for Phase 1:
+
+Markdown
+
+# Phase 1: Setup & Concepts
+
+## 🎯 Learning Objectives
+* Understand the internal architecture of Git.
+* Set up a professional development environment.
+* Configure global identities for version tracking.
+
+---
+
+## 📖 Theory: The Architecture Flow
+Git works across four distinct areas. Understanding this flow is critical for mastering Git:
+1. **Working Directory:** Where you modify files.
+2. **Staging Area (Index):** Preparing files for a commit.
+3. **Local Repo (.git):** Where snapshots are saved locally.
+4. **Remote Repo (GitHub):** Where the code lives in the cloud.
+
+## 🛠️ Installation & Config
+### 1. Installation
+* **Windows:** Download [Git for Windows](https://git-scm.com/).
+* **Mac:** `brew install git`
+* **Linux:** `sudo apt install git-all`
+
+### 2. Global Configuration
+Run these commands after installation:
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+📝 Practice Lab
+[ ] Check git version using git --version.
+
+[ ] Verify your config settings with git config --list.
+
+
+---
+
+# Phase 2: Basic Workflow (The Daily Cycle)
+
+## 🎯 Learning Objectives
+* Connect local machines to GitHub.
+* Master the `Add -> Commit -> Push` cycle.
+* Understand the difference between `Pull` and `Fetch`.
+
+---
+
+## 📖 Essential Commands
+| Command | Description |
+| :--- | :--- |
+| `git clone <url>` | Copies a remote repository to your local machine. |
+| `git status` | Shows which files are staged, unstaged, and untracked. |
+| `git add <file>` | Moves changes from the Working Directory to the Staging Area. |
+| `git commit -m "msg"` | Saves the staged snapshot to the Local Repository. |
+| `git push` | Uploads local commits to GitHub. |
+| `git fetch` | Downloads updates from GitHub but does not merge them. |
+| `git pull` | Downloads and automatically merges updates (Fetch + Merge). |
+
+## 📁 The .gitignore File
+Always create a `.gitignore` file to prevent sensitive data (like `.env`) or system junk (like `node_modules`) from being uploaded.
+
+## 📝 Practice Lab
+1. Clone this repo.
+2. Create a file named `student.txt`.
+3. Add, commit, and push it to a new branch.
+4. Run `git log --oneline` to see your history.
+Phase 3: 03-Branching-and-Merging/README.md
+Markdown
+
+# Phase 3: Branching & Merging
+
+## 🎯 Learning Objectives
+* Understand non-linear development using branches.
+* Learn to resolve Merge Conflicts.
+* Compare Merging vs. Rebasing.
+
+---
+
+## 📖 Key Concepts
+### 1. Merging
+Combines two branches while preserving the history of how they joined.
+```bash
+git checkout main
+git merge feature-branch
+2. Rebasing
+"Re-writes" history by moving your feature branch to the tip of the main branch. It creates a cleaner, linear history.
+
+3. Merge Conflicts
+Occur when two people change the same line of code.
+
+Solution: Open the file, choose the correct code, git add, and git commit.
+
+📝 Practice Lab
+Create a branch: git checkout -b feature-test.
+
+Make a change and commit.
+
+Switch back to main and merge the feature.
+
+
+---
+
+### Phase 4: `04-Advanced-Git-Tools/README.md`
+```markdown
+# Phase 4: Advanced Git Tools
+
+## 🎯 Learning Objectives
+* Use `Stash` to save work-in-progress.
+* Use `Cherry-pick` to move specific commits.
+* Use `Squash` to clean up messy commit histories.
+
+---
+
+## 📖 Advanced Commands
+* **Stash:** Use `git stash` when you need to switch branches but aren't ready to commit. Use `git stash pop` to bring changes back.
+* **Cherry-pick:** `git cherry-pick <commit-hash>` allows you to grab a single commit from another branch.
+* **Tagging:** `git tag -a v1.0 -m "Release version 1.0"` marks a specific point in history as important.
+
+## 📝 Practice Lab
+1. Make a change, then run `git stash`.
+2. Observe that your changes "disappear."
+3. Run `git stash pop` to see them return.
+Phase 5: 05-Undo-and-Troubleshoot/README.md
+Markdown
+
+# Phase 5: Undo & Troubleshoot (The Panic Button)
+
+## 🎯 Learning Objectives
+* Learn how to safely undo mistakes.
+* Understand the "Dangerous" vs. "Safe" undo commands.
+
+---
+
+## 📖 Revert vs. Reset
+| Command | Effect | Safety |
+| :--- | :--- | :--- |
+| `git revert` | Creates a NEW commit that does the opposite of a previous one. | **Safe** (Best for shared code) |
+| `git reset --soft` | Undoes the commit but keeps your code changes. | **Medium** |
+| `git reset --hard` | Deletes the commit and all code changes. | **Dangerous** (Data loss!) |
+
+## 🛠️ Common Errors & Solutions
+* **"Updates were rejected":** You need to `git pull` before you can `git push`.
+* **"Detached HEAD":** You checked out a commit instead of a branch. Run `git checkout main`.
+Phase 6: 06-Org-and-RBAC/README.md
+Markdown
+
+# Phase 6: Enterprise Admin & RBAC
+
+## 🎯 Learning Objectives
+* Manage teams using GitHub Organizations.
+* Implement Role-Based Access Control (RBAC).
+
+---
+
+## 📖 Enterprise Management
+1. **Organizations:** Create a shared space for multiple repositories.
+2. **Teams:** Group students/developers into teams (e.g., "Frontend Team").
+3. **Permissions:**
+   * **Read:** Can view code.
+   * **Write:** Can push code.
+   * **Admin:** Can delete the repo and manage settings.
+
+## 🛡️ Branch Protection Rules
+In GitHub Settings, you can prevent people from pushing directly to the `main` branch
