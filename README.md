@@ -1,7 +1,7 @@
-# DEVOPS_PROJECTS
+# DEVOPS_PROJECTS - 2025 
 *** ALL  TOOLS ***
 
-## 🗺️ Learning Roadmap # GIT & GITHUB
+## 🗺️ Learning Roadmap - GIT & GITHUB
 
 | Phase | Topic | Key Concepts |
 | :--- | :--- | :--- |
